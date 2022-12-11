@@ -11,8 +11,8 @@ export function App() {
 
 
   const onLeaveFeedback = (option) => {
-console.log(option.target.id)
-    switch (option.target.id) {
+console.log(option)
+    switch (option) {
       case 'good':
         setGood(prevState => prevState + 1);
         break;
@@ -26,7 +26,7 @@ console.log(option.target.id)
         break;
 
       default:
-        console.log(`No option called ${option.target.id}`);
+        console.log(`No option called ${option}`);
         break;
     }
   };
@@ -36,10 +36,12 @@ console.log(option.target.id)
   const countPositiveFeedbackPercentage = () => {
     const total = countTotalFeedback();
     const positivePercentage = good;
+    
     let result = 0;
 
     if (total > 0) {
       result = Math.ceil((positivePercentage / total) * 100);
+      
     }
     return `${result}`;
   };
@@ -69,5 +71,4 @@ console.log(option.target.id)
     </div>
   );
 }
-
 

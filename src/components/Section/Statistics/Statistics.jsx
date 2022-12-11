@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 
 export const Statistics = ({ good, neutral, bad, total, positivePercentage}) => {
+   console.log ('positivePercentage', positivePercentage)
 return (
     <ul className={css.statisticsList} >
        <li>Good: <span>{good}</span></li>
