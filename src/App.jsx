@@ -9,9 +9,8 @@ export function App() {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-
   const onLeaveFeedback = (option) => {
-console.log(option)
+
     switch (option) {
       case 'good':
         setGood(prevState => prevState + 1);
@@ -34,16 +33,11 @@ console.log(option)
   const countTotalFeedback = () => good + neutral + bad;
 
   const countPositiveFeedbackPercentage = () => {
-    const total = countTotalFeedback();
-    const positivePercentage = good;
-    
-    let result = 0;
 
-    if (total > 0) {
-      result = Math.ceil((positivePercentage / total) * 100);
-      
-    }
-    return `${result}`;
+    return countTotalFeedback()
+    ? Math.round((good / countTotalFeedback()) *100)
+    : 0; 
+    
   };
 
   return (
